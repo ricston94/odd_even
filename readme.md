@@ -50,8 +50,8 @@ If any of the threads is unsorted, each thread has to reiterate and solve the pr
 
 The results can be observed in the html files "laptop_fancyplot.html" and "zybo_fancyplot.html". The files can be opened with a web browser, e.g. Chrome.
 
-![Laptop](odd_even/laptop_plot.png "Results on laptop")
-![Zybo](odd_even/zybo_plot.png "Results on Zybo")
+![Laptop](/laptop_plot.png "Results on laptop")
+![Zybo](/zybo_plot.png "Results on Zybo")
 
 All in all, the shape of the plots are pretty much identical on both devices.
 
