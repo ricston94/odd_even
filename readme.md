@@ -38,13 +38,13 @@ Although the algorithm is not in focus, it is important to describe the main pro
 
 The solution was based on the code of user [Nalaka1693](https://github.com/Nalaka1693/pthread_odd_even_sort) on GitHub.
 
-In case of a dataset with a size of *n* the algorithm is suitable for having a maximum of *n/2* threads[]. In case of the maximum number of threads, one thread basically has to take care of a single pair of numbers in the dataset. If we have less threads, we need to divide the dataset accordingly.
+In case of a dataset with a size of *n* the algorithm is suitable for having a maximum of [*n/2* threads](https://en.wikipedia.org/wiki/Odd%E2%80%93even_sort). In case of the maximum number of threads, one thread basically has to take care of a single pair of numbers in the dataset. If we have less threads, we need to divide the dataset accordingly.
 
 An important thing to mention is that, for example in case of two threads we can not simply divide the dataset in two halfs, because in this case, the two subsets would get sorted separately. As a result, there has to be an overlap in the indexes of the subsets so that the threads can "cooperate".
 
 The threads do not need any syncronization during an even or an odd phase, but they do when they are making transition from one phase to another. For this sync, [pthread_barrier_wait](http://pubs.opengroup.org/onlinepubs/009695399/functions/pthread_barrier_wait.html) is used. This basically guarantees that all the threads are done with their subset before going to the next phase.
 
-If any of the threads is unsorted, each thread has to reiterate and solve the problem, possibly using the overlaps between the subset indexes. The threads are using a global variable to indicate if they are sorted or not.
+If any of the threads is unsorted, each thread has to reiterate and solve the problem, possibly using the overlaps between the subset indexes. The threads are using a global variable to indicate if their subset is sorted or not.
 
 ## Results
 
